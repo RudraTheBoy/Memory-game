@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  background: linear-gradient(90deg, #33ccff, #cc00ff);
+}
+.ok {
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  margin-left: 20px;
+  border-radius: 20px;
+  height: 25px;
+  width: 90px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #003366;
+  color: antiquewhite;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.ok::after,
+.ok::before {
+  content: "";
+  position: absolute;
+  opacity: 0.3;
+  background: linear-gradient(45deg, #8460ed, #00d9ff, #000);
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.ok:hover {
+  transform: translate(-12px, -12px);
+}
+.ok:hover::after {
+  transform: translate(6px, 6px);
+}
+.memory-game {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+.memory-card:active {
+  transition: transform 0.2s;
+  transform: scale(0.97);
+}
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+.front-face,
+.back-face {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #66ffff, #003366);
+  backface-visibility: hidden;
+}
+.front-face {
+  transform: rotateY(180deg);
+}
